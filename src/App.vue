@@ -3,37 +3,40 @@ import axios from 'axios';
 export default {
   name: 'App',
 
+  // Senza components non si possono usare i components
+  components: {
+    ProjectCard
+  },
+
   data() {
     return {
-      base_url: 'http://127.0.0.1:8000/',
+      base_url: 'http://127.0.0.1:8000',
       projects: ''
     }
   },
 
   mounted() {
     axios
-      .get('${this.base_url}/api/projects')
+      .get(`${this.base_url}/api/projects`)
       .then(response => {
         console.log(response);
-        this.projects=response.data.projects;
+        this.projects = response.data.projects;
       })
   }
 }
 
 
-import HelloWorld from './components/HelloWorld.vue'
+import ProjectCard from './components/ProjectCard.vue'
 </script>
 
 <template>
+
+  <ProjectCard msg="prova"></ProjectCard>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <li v-for="item in this.projects.data">
+      {{ item.description }}
+    </li>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
