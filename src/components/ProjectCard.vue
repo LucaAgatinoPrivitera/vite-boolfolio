@@ -1,43 +1,24 @@
-<script setup>
-import { ref } from 'vue'
-
-defineProps({
-  msg: String,
-})
-
-const count = ref(0)
+<script>
+export default {
+    props: ['project']
+}
 </script>
 
 <template>
-  <!-- <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
-  </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Learn more about IDE Support for Vue in the
-    <a
-      href="https://vuejs.org/guide/scaling-up/tooling.html#ide-support"
-      target="_blank"
-      >Vue Docs Scaling up Guide</a
-    >.
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p> -->
+    <div>
+        <h3>{{ project.name_project }}</h3>
+        <p>{{ project.description }}</p>
+        <p>{{ project.date }}</p>
+        <p v-if="project.group">Progetto svolto in gruppo</p>
+        <p v-else>Progetto non svolto in gruppo</p>
+        <p>{{ project.type_id }}</p>
+        <p>{{ project.type.name_type }}</p>
+    </div>
 </template>
+
 
 <style scoped>
 .read-the-docs {
-  color: #888;
+    color: #888;
 }
 </style>
