@@ -5,6 +5,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 import ProjectIndex from './views/ProjectIndex.vue'
 import ProjectShow from './views/ProjectShow.vue'
+
 import AppHome from './views/AppHome.vue'
 import AppAbouts from './views/AppAbouts.vue'
 import AppContacts from './views/AppContacts.vue'
@@ -31,7 +32,8 @@ const router = createRouter({
         //     path: '/projects/:id',
         //     name: 'project-show',
         //     component: ProjectShow,
-        //     meta: { label: 'Show' }
+        //     props: true,
+        //     meta: { label: 'Show' },
         // },
         {
             path: '/about',
