@@ -12,17 +12,27 @@ const router = createRouter({
     routes: [
         {
             // Il path è quella da mettere nel browser, il nome devo ancora capirlo
-            path: '/',
+            path: '/index',
             name: 'index',
-            component: AppHome
+            component: AppHome,
+            meta: { label: 'Home' },
         },
         {
             path: '/projects',
             name: 'projects-list',
-            component: ProjectIndex
-        }
+            component: ProjectIndex,
+            meta: { label: 'Projects' }
+        },
+        // {
+        //     path: '/projects/:id',
+        //     name: 'project-show',
+        //     component: ProjectShow,
+        //     meta: { label: 'Show' }
+        // }
     ]
 })
 
 export { router };
-createApp(App).use(router).mount('#app')
+createApp(App)
+    .use(router)
+    .mount('#app')

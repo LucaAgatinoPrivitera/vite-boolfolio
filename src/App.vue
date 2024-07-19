@@ -1,17 +1,20 @@
 <script>
 import axios from 'axios';
 import ProjectsList from './components/ProjectsList.vue'
+import ProjectIndex from './views/ProjectIndex.vue'
+import { router } from './main';
 
 export default {
   name: 'App',
   components: {
-    ProjectsList
+    ProjectsList,
+    ProjectIndex
   },
   data() {
     return {
       base_url: 'http://127.0.0.1:8000',
       projects: [],
-      selectedProject: null
+      selectedProject: null,
     }
   },
   mounted() {
@@ -26,26 +29,53 @@ export default {
     selectProject(project) {
       this.selectedProject = project;
     }
+  },
+
+  computed: {
+    menuItems() {
+      console.log(this.$router.options.routes)
+
+      return this.$router.options.routes;
+
+    }
   }
 }
 </script>
 
 <template>
-  <div class="mb-5 mt-3 w-75 m-auto">
+  <!-- <div class="mb-5 mt-3 w-75 m-auto">
     <h1>Lista fatta giorno 18 (senza router-view)</h1>
     <ProjectsList :projects="projects" :selectedProject="selectedProject"
       @update:selectedProject="selectedProject = $event" />
-  </div>
+  </div> -->
 
   <!-- <div class="mb-5 w-75 m-auto">
     <h1>Lista fatta giorno 19 (con router-view)</h1>
     <router-view :projects="projects" :selectedProject="selectedProject"
       @update:selectedProject="selectedProject = $event"></router-view>
   </div> -->
-    <div class="mb-5 w-75 m-auto">
-    <h1>Lista fatta giorno 19 (con router-view)</h1>
-    <router-view></router-view>
+
+  <!-- <li v-for="(item, index) in projects" :key="index">
+    <router-link :to="{ name: item.routeName }" class="nav-link">
+      {{ item.label }}
+    </router-link>
+  </li> -->
+
+  <div>
+    <nav>
+      <ul>
+        <li v-for="(item, index) in menuItems" :key="index">
+          <router-link :to="{ name: item.name }" class="nav-link">
+            {{ item.name }}
+          </router-link>
+        </li>
+      </ul>
+    </nav>
+    <router-view />
   </div>
+
+  <!-- <ProjectIndex :projects="projects" :selectedProject="selectedProject"
+    @update:selectedProject="selectedProject = $event"></ProjectIndex> -->
 
 </template>
 
