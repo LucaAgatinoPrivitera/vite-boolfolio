@@ -60,6 +60,8 @@ export default {
     <div v-else class="row mx-5 my-3">-->
 
     <!-- <p>prova {{ projects }}</p> -->
+
+    <h2 class="mx-5 my-3 px-2 py-1">Lista dei miei progetti</h2>
     
     <div class="row mx-5 my-3">
       <div v-for="project in projects" :key="project.id" class="col-3 rounded">

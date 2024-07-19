@@ -62,14 +62,12 @@ export default {
   </li> -->
 
   <div>
-    <nav>
-      <ul>
-        <li v-for="(item, index) in menuItems" :key="index">
+    <nav class=" mx-4 mt-2 d-flex gap-2">
+        <span v-for="(item, index) in menuItems" :key="index">
           <router-link :to="{ name: item.name }" class="nav-link">
             {{ item.name }}
           </router-link>
-        </li>
-      </ul>
+        </span>
     </nav>
     <router-view />
   </div>

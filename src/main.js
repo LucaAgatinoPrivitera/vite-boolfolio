@@ -6,6 +6,8 @@ import App from './App.vue'
 import ProjectIndex from './views/ProjectIndex.vue'
 import ProjectShow from './views/ProjectShow.vue'
 import AppHome from './views/AppHome.vue'
+import AppAbouts from './views/AppAbouts.vue'
+import AppContacts from './views/AppContacts.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -30,7 +32,21 @@ const router = createRouter({
         //     name: 'project-show',
         //     component: ProjectShow,
         //     meta: { label: 'Show' }
-        // }
+        // },
+        {
+            path: '/about',
+            name: 'about',
+            component: AppAbouts,
+            props: true,
+            meta: { label: 'About' }
+        },
+        {
+            path: '/contacts',
+            name: 'contacts',
+            component: AppContacts,
+            props: true,
+            meta: { label: 'contacts' }
+        },
     ]
 })
 
