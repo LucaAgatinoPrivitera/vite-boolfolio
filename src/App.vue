@@ -31,9 +31,22 @@ export default {
 </script>
 
 <template>
-  <ProjectsList :projects="projects" 
-      :selectedProject="selectedProject"
+  <div class="mb-5 mt-3 w-75 m-auto">
+    <h1>Lista fatta giorno 18 (senza router-view)</h1>
+    <ProjectsList :projects="projects" :selectedProject="selectedProject"
       @update:selectedProject="selectedProject = $event" />
+  </div>
+
+  <!-- <div class="mb-5 w-75 m-auto">
+    <h1>Lista fatta giorno 19 (con router-view)</h1>
+    <router-view :projects="projects" :selectedProject="selectedProject"
+      @update:selectedProject="selectedProject = $event"></router-view>
+  </div> -->
+    <div class="mb-5 w-75 m-auto">
+    <h1>Lista fatta giorno 19 (con router-view)</h1>
+    <router-view></router-view>
+  </div>
+
 </template>
 
 <style scoped>
