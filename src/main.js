@@ -12,15 +12,17 @@ const router = createRouter({
     routes: [
         {
             // Il path è quella da mettere nel browser, il nome devo ancora capirlo
-            path: '/index',
+            path: '/',
             name: 'index',
             component: AppHome,
+            props: true,
             meta: { label: 'Home' },
         },
         {
             path: '/projects',
             name: 'projects-list',
             component: ProjectIndex,
+            props: true,
             meta: { label: 'Projects' }
         },
         // {
