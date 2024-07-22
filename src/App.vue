@@ -15,6 +15,20 @@ export default {
       base_url: 'http://127.0.0.1:8000',
       projects: [],
       selectedProject: null,
+      menu: [
+        {
+          name: 'index',
+          route: 'index'
+        },
+        {
+          name: 'about',
+          route: 'about'
+        },
+        {
+          name: 'contacts',
+          route: 'contacts'
+        }
+      ]
     }
   },
   mounted() {
@@ -36,6 +50,9 @@ export default {
       console.log(this.$router.options.routes)
 
       return this.$router.options.routes;
+
+      // Così escludo l'oggetto dove exlucdefromlist è false
+      // return this.$router.options.routes.filter(item => !item.excludeFromlist);
 
     }
   }
@@ -63,11 +80,12 @@ export default {
 
   <div>
     <nav class=" mx-4 mt-2 d-flex gap-2">
-        <span v-for="(item, index) in menuItems" :key="index">
-          <router-link :to="{ name: item.name }" class="nav-link">
-            {{ item.name }}
-          </router-link>
-        </span>
+      <!-- Ciclare sull'array di oggetti del router non va bene perché li prende tutti e quindi cerca di dare lo slug a tutti -->
+      <span v-for="(item, index) in menu" :key="index">
+        <router-link :to="{ name: item.name }" class="nav-link">
+          {{ item.name }}
+        </router-link>
+      </span>
     </nav>
     <router-view />
   </div>

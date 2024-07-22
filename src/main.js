@@ -10,6 +10,8 @@ import AppHome from './views/AppHome.vue'
 import AppAbouts from './views/AppAbouts.vue'
 import AppContacts from './views/AppContacts.vue'
 
+import PageNotFound from './views/PageNotFound.vue'
+
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -49,6 +51,15 @@ const router = createRouter({
             props: true,
             meta: { label: 'contacts' }
         },
+        {
+            // path: "/:catchAll(.*)",
+            path: '/:pathMatch(.*)*',
+            name: "NotFound",
+            component: PageNotFound,
+            meta: {
+                requiresAuth: false
+            }
+        }
     ]
 })
 
