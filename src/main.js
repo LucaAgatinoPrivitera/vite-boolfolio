@@ -36,6 +36,8 @@ const router = createRouter({
             component: ProjectShow,
             props: true,
             meta: { label: 'Show' },
+            // Escludo poi dall'app.vue
+            excludeFromlist: true
         },
         {
             path: '/about',
