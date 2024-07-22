@@ -28,13 +28,13 @@ const router = createRouter({
             props: true,
             meta: { label: 'Projects' }
         },
-        // {
-        //     path: '/projects/:id',
-        //     name: 'project-show',
-        //     component: ProjectShow,
-        //     props: true,
-        //     meta: { label: 'Show' },
-        // },
+        {
+            path: '/projects/:slug',
+            name: 'project',
+            component: ProjectShow,
+            props: true,
+            meta: { label: 'Show' },
+        },
         {
             path: '/about',
             name: 'about',

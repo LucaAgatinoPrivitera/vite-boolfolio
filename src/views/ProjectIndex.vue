@@ -62,7 +62,7 @@ export default {
     <!-- <p>prova {{ projects }}</p> -->
 
     <h2 class="mx-5 my-3 px-2 py-1">Lista dei miei progetti</h2>
-    
+
     <div class="row mx-5 my-3">
       <div v-for="project in projects" :key="project.id" class="col-3 rounded">
         <div class="d-flex flex-column justify-content-center border singleCard px-2 py-1">
@@ -76,6 +76,7 @@ export default {
           <p>id: {{ project.type_id }}</p>
           <p>Tipologia del progetto: {{ project.type.name_type }}</p>
           <button @click="selectProject(project)" class="btn btn-primary">more details</button>
+          <router-link :to="{ name: 'project', params: { slug: project.slug } }">read more</router-link>
         </div>
       </div>
     </div>
